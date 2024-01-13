@@ -4,16 +4,17 @@
 
 The Colorful Comments Extension will help you create more human-friendly comments in your code.  
 With this Extension, you will be able to categorise your cody by special colour into:
-* Red (!)
-* Blue (?)
-* Green (*)
-* Yellow (^)
-* Pink (&)
-* Purple (~)
-* Mustard (todo)
-* Grey (//)
-* Commented out Code can also be Styled to make it Clear the Code shouldn't be There.
-* Any Other Comment Styles you'd like can be Specified in the Settings.
+
+-   Red (!)
+-   Blue (?)
+-   Green (\*)
+-   Yellow (^)
+-   Pink (&)
+-   Purple (~)
+-   Mustard (todo)
+-   Grey (//)
+-   Commented out Code can also be Styled to make it Clear the Code shouldn't be There.
+-   Any Other Comment Styles you'd like can be Specified in the Settings.
 
 ![](Images/Colorful-Comments.png)
 
@@ -21,21 +22,20 @@ With this Extension, you will be able to categorise your cody by special colour 
 
 This extension can be configured in User Settings or Workspace settings.
 
-
-`"colorful-comments.multilineComments": true`  
+`"colorful-comments-refreshed.multilineComments": true`  
  This setting will control whether multiline comments are styled using the annotation tags.
- When false, multiline comments will be presented without decoration.
+When false, multiline comments will be presented without decoration.
 
-`"colorful-comments.highlightPlainText": false`  
+`"colorful-comments-refreshed.highlightPlainText": false`  
 This setting will control whether comments in a plain text file are styled using the annotation tags.
 When true, the tags (defaults: `! * ? // ~ & ^`) will be detected if they're the first character on a line.
 
-`colorful-comments.tags`  
+`colorful-comments-refreshed.tags`  
 The tags are the characters or sequences used to mark a comment for decoration.
 The default 7 can be modifed to change the colors, and more can be added.
 
 ```json
-"colorful-comments.tags": [
+"colorful-comments-refreshed.tags": [
   {
     "tag": "!",
     "color": "#FF2D00",
@@ -77,7 +77,7 @@ The default 7 can be modifed to change the colors, and more can be added.
     "italic": false
   },
   {
-    "tag": "&", 
+    "tag": "&",
     "color": "#FF06A0",
     "strikethrough": false,
     "backgroundColor": "transparent",
@@ -106,7 +106,7 @@ The default 7 can be modifed to change the colors, and more can be added.
 another example :
 
 ```json
-"colorful-comments.tags": [
+"colorful-comments-refreshed.tags": [
         {
             "backgroundColor": "transparent",
             "color": "#2C3A47",
@@ -253,41 +253,41 @@ another example :
     ],
 ```
 
-## Supported Languages 
+## Supported Languages
 
-* BrightScript
-* C
-* C#
-* C++
-* Clojure
-* CSS
-* Dart
-* Dockerfile
-* Groovy
-* HTML
-* Java
-* Javascript
-* JavaScript React
-* JSON with comments
-* Less
-* Lua
-* Markdown
-* Objective-C
-* Objective-C++
-* PHP
-* PowerShell
-* Python
-* Sass
-* SCSS
-* TypeScript
-* TypeScript React
-* XML
-* YAML
-* Astro
+-   BrightScript
+-   C
+-   C#
+-   C++
+-   Clojure
+-   CSS
+-   Dart
+-   Dockerfile
+-   Groovy
+-   HTML
+-   Java
+-   Javascript
+-   JavaScript React
+-   JSON with comments
+-   Less
+-   Lua
+-   Markdown
+-   Objective-C
+-   Objective-C++
+-   PHP
+-   PowerShell
+-   Python
+-   Sass
+-   SCSS
+-   TypeScript
+-   TypeScript React
+-   XML
+-   YAML
+-   Astro
 
 ## Adding Language Support
 
-- [add an issue with tag "language support" on Github](https://github.com/allemand-instable/Colorful-Comments/issues)
+-   [add an issue with tag "language support" on Github](https://github.com/allemand-instable/Colorful-Comments/issues)
 
 I can't do everything by myself so feel free when opening an issue to provide the yaml corresponding to your desired language :
 
@@ -297,13 +297,13 @@ all possible fields :
 
 ```yaml
 language_delim: &language_delim
-  supportedLanguage: true
-  ignoreFirstLine: false
-  isPlainText: false
-  commentFormat: ["//", "/*", "*/"]
-  highlightJSDoc: false
-  delimiter: "//"
-  escapeRegExp: "*>"
+    supportedLanguage: true
+    ignoreFirstLine: false
+    isPlainText: false
+    commentFormat: ["//", "/*", "*/"]
+    highlightJSDoc: false
+    delimiter: "//"
+    escapeRegExp: "*>"
 ```
 
 languages build upon the base arguments needed, and then add either `commentFormat`, `delimiter` or `escapeRegExp`, you can override properties of the base parameters.
@@ -325,14 +325,13 @@ interface LanguageConfig {
 }
 ```
 
-
 the base :
 
 ```yaml
 base: &base
-  supportedLanguage: true
-  ignoreFirstLine: false
-  isPlainText: false
+    supportedLanguage: true
+    ignoreFirstLine: false
+    isPlainText: false
 ```
 
 example of escapeRegExp language : cobol
@@ -387,7 +386,7 @@ python_delim: &python_delim
 or html :
 
 ```html
-<p> a paragraph </p>
+<p>a paragraph</p>
 <!-- this won't display
 
 and is multiline

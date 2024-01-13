@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.7.1]
+
+* fixed bug of configuration not working due to extension name needing to be different from colorful-comments → colorful-comments-refreshed
+
 ## [0.7.0]
 
 * Changed Parser's setDelimiter method to be able to quickly implement new languages in a yaml file
