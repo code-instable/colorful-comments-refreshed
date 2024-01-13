@@ -1,4 +1,11 @@
 import * as vscode from 'vscode';
+// import * as fs from 'fs';
+// import * as yaml from 'js-yaml';
+
+// precompiled yaml to typescript for compilation
+// npm run compile :
+//        python convert_yaml.py
+import { doc } from "./languageConfig";
 
 interface CommentTag
 {
@@ -230,7 +237,9 @@ export class Parser
 	* https://code.visualstudio.com/docs/languages/identifiers
   */
   
-  private setDelimiter(languageCode: string): void
+  // ! deprected
+  // @ts-ignore
+  private __setDelimiter(languageCode: string): void
   {
     this.supportedLanguage = true;
     this.ignoreFirstLine = false;
@@ -385,6 +394,49 @@ export class Parser
 
       default: this.supportedLanguage = false;
                break;
+    }
+  }
+
+  private setDelimiter(languageCode: string): void
+  {
+    // ~ config file
+
+    // pulling directly from the yaml
+    // const fileContents = fs.readFileSync('./parser/data/languageConfig.yaml', 'utf8');
+    // const doc = yaml.load(fileContents) as YamlConfig;
+
+    // * the language config dict
+    const languageConfig = doc.language[languageCode];
+    // si le langage apparait dans la liste des langages supportés
+    if (languageConfig) {
+      // ~ always defined properties
+      // from &base
+      this.supportedLanguage = languageConfig.supportedLanguage;
+      this.ignoreFirstLine = languageConfig.ignoreFirstLine;
+      this.isPlainText = languageConfig.isPlainText;
+      // ~ varying parameters
+      if (languageConfig.commentFormat) {
+        // format the comment style
+        this.setCommentFormat(languageConfig.commentFormat[0], languageConfig.commentFormat[1], languageConfig.commentFormat[2]);
+      }
+      else if (languageConfig.escapeRegExp) {
+        this.delimiter = this.escapeRegExp(languageConfig.escapeRegExp)
+      }
+      else if (languageConfig.delimiter) {
+        // use the delimiter
+        this.delimiter = languageConfig.delimiter
+      }
+      else {
+        // error : missing key
+        // should have either delimiter, commentFormat, escapeRegExp
+        this.supportedLanguage = false;
+        vscode.window.showErrorMessage("should have either delimiter, commentFormat, escapeRegExp : none provided")
+      }
+    }
+    // sinon il s'agit de "default"
+    else {
+      this.supportedLanguage = false;
+      vscode.window.showErrorMessage("language is not supported by Colorful Comments, please add it to languageConfig.yaml")
     }
   }
 

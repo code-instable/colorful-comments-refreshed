@@ -1,5 +1,21 @@
 # Change Log
 
+## [0.7.0]
+
+* Changed Parser's setDelimiter method to be able to quickly implement new languages in a yaml file
+
+* yaml file location : `src/parser/data/languageConfig.yaml`
+
+* added Astro
+
+* changed logo
+
+---
+
+original extension author changelog :
+
+---
+
 ## [0.6.2]
 * Added Brightscript and XML Support but without samples experimented.
 

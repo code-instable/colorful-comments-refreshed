@@ -7,21 +7,26 @@
   },
   "plugins": [
     "@typescript-eslint"
-  ],
-  "rules": {
-    "no-string-throw": true,
-    "no-unused-expression": true,
-    "no-duplicate-variable": true,
-    "curly": [
-      true,
-      "ignore-same-line"
-    ],
-    "class-name": true,
-    "semicolon": [
-      true,
-      "always"
-    ],
-    "triple-equals": true
-  },
-  "defaultSeverity": "warning"
+  ]
+  // "rules": {
+  //   "no-string-throw": 2,
+  //   "no-unused-expression": 1,
+  //   "no-duplicate-variable": 2,
+  //   // ——————————————————————
+  //   // Error: .eslintrc.json:
+  //   // Configuration for rule "curly" is invalid:
+  //   // Severity should be one of the following: 0 = off, 1 = warn, 2 = error (you passed 'true').
+  //   // "curly": [
+  //   //   true,
+  //   //   "ignore-same-line"
+  //   // ],
+  //   // ——————————————————————
+  //   "class-name": 1,
+  //   "semicolon": [
+  //     2,
+  //     "always"
+  //   ],
+  //   "triple-equals": 2
+  // }
+  // "defaultSeverity": "warning"
 }

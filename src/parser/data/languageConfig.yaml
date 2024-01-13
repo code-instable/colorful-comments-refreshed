@@ -1,0 +1,231 @@
+base: &base
+  supportedLanguage: true
+  ignoreFirstLine: false
+  isPlainText: false
+
+# * C style delimiters
+c_delim: &c_delim
+  <<: *base
+  commentFormat: ["//", "/*", "*/"]
+  highlightJSDoc: false
+# 
+js_doc_delim: &js_doc_delim
+  <<: *c_delim
+  highlightJSDoc: true
+# 
+css_delim: &css_delim
+  <<: *base
+  commentFormat: ["/*", "/*", "*/"]
+  
+# * hash (#) delimiters
+hash_delim: &hash_delim
+  <<: *base
+  delimiter: "#"
+# 
+tcl_delim: &tcl_delim
+  <<: *hash_delim
+  ignoreFirstLine: true
+# 
+python_delim: &python_delim
+  <<: *base
+  commentFormat: ["#", '"""', '""""']
+  ignoreFirstLine: true
+#
+nim_delim: &nim_delim
+  <<: *base
+  commentFormat: ["#", "#[", "]#"]
+#
+powershell_delim: &powershell_delim
+  <<: *base
+  commentFormat: ["#", "<#", "#>" ]
+#
+terraform_format: &terraform_format
+  <<: *base
+  commentFormat: ["#", "/*", "*/"]
+
+twig_format: &twig_format
+  <<: *base
+  commentFormat: ["{#", "{#", "#}"]
+
+
+# * dash (-) delimiters
+double_dash_delim: &double_dash_delim
+  <<: *base
+  delimiter: "--"
+lua_format: &lua_format
+  <<: *base
+  commentFormat: ["--", "--[[", "]]"]
+
+haskell_elm_format: &haskell_elm_format
+  <<: *base
+  commentFormat: ["--", "{-", "-}"]
+
+
+# * special char delimiters
+single_quote_delim: &single_quote_delim
+  <<: *base
+  delimiter: "'"
+
+percent_delim: &percent_delim
+  <<: *base
+  delimiter: "%"
+
+semicolon_delim: &semicolon_delim
+  <<: *base
+  delimiter: ";"
+
+fortran_delim: &fortran_delim
+  <<: *base
+  delimiter: "c"
+
+sas_stata_format: &sas_stata_format
+  <<: *base
+  commentFormat: ["*", "/*", "*/"]
+
+genstat_format: &genstat_format
+  <<: *base
+  commentFormat: ["\\", '"', '"']
+
+asciidoc_format: &asciidoc_format
+  <<: *base
+  commentFormat: ["//", "////", "////"]
+
+# * html style delimiters
+html_format: &html_format
+  <<: *base
+  commentFormat: ["<!--", "<!--", "-->"]
+
+cfml_format: &cfml_format
+  <<: *base
+  commentFormat: ["<!---", "<!---", "--->"]
+
+astro_delim: &astro_delim
+  <<: *base
+  commentFormat: ["//", "<!--", "-->"]
+
+# * regExp delimiters
+# this.delimiter = this.escapeRegExp( ... )
+cobol_delim: &cobol_delim
+  <<: *base
+  escapeRegExp: "*>"
+
+# * plaintext
+plaintext_delim: &plaintext_delim
+  <<: *base
+  isPlainText: true
+  # if true
+  # this.supportedLanguage = this.contributions.highlightPlainText;
+
+# ! default
+default_delim: &default_delim
+  <<: *base
+  supportedLanguage: false
+
+
+# ——————————————————————————————————————————— #
+
+
+language:
+  # * js doc style delimiter
+  javascript:       *js_doc_delim
+  typescript:       *js_doc_delim
+  javascriptreact:  *js_doc_delim
+  typescriptreact:  *js_doc_delim
+  apex:             *js_doc_delim
+
+  # * C style delimiter
+  c: *c_delim
+  cpp: *c_delim
+  csharp: *c_delim
+  dart: *c_delim
+  flax: *c_delim
+  fsharp: *c_delim
+  go: *c_delim
+  al: *c_delim
+  groovy: *c_delim
+  haxe: *c_delim
+  java: *c_delim
+  jsonc: *c_delim
+  kotlin: *c_delim
+  less: *c_delim
+  pascal: *c_delim
+  objectpascal: *c_delim
+  php: *c_delim
+  rust: *c_delim
+  scala: *c_delim
+  scss: *c_delim
+  stylus: *c_delim
+  swift: *c_delim
+  verilog: *c_delim
+  vue: *c_delim
+
+  css: *css_delim
+
+  # * hash (#) delimiter
+  coffeescript: *hash_delim
+  dockerfile: *hash_delim
+  gdscript: *hash_delim
+  graphql: *hash_delim
+  julia: *hash_delim
+  makefile: *hash_delim
+  perl: *hash_delim
+  perl6: *hash_delim
+  puppet: *hash_delim
+  r: *hash_delim
+  ruby: *hash_delim
+  shellscript: *hash_delim
+  yaml: *hash_delim
+  # $ python style delimiter
+  python: *python_delim
+  elexir: *python_delim
+  # $ other
+  tcl: *tcl_delim
+  nim: *nim_delim
+  powershell: *powershell_delim
+
+  # * dash delim
+  ada: *double_dash_delim
+  hive-sql: *double_dash_delim
+  pig: *double_dash_delim
+  plsql: *double_dash_delim
+  sql: *double_dash_delim
+  # $ multiline
+  lua: *lua_format
+  elm: *haskell_elm_format
+  haskell: *haskell_elm_format
+
+  # * " delimiters
+  brightscript: *single_quote_delim
+  diagram: *single_quote_delim
+  vb: *single_quote_delim
+  # * % delimiters
+  bibtex: *percent_delim
+  erlang: *percent_delim
+  latex: *percent_delim
+  matlab: *percent_delim
+  # * ; delimiters
+  clojure: *semicolon_delim
+  racket: *semicolon_delim
+  lisp: *semicolon_delim
+  # * html style delimiters
+  html: *html_format
+  markdown: *html_format
+  xml: *html_format
+
+  # * standalone delimiters
+  terraform: *terraform_format
+  COBOL: *cobol_delim
+  fortran-modern: *fortran_delim
+  SAS: *sas_stata_format
+  stata: *sas_stata_format
+  twig: *twig_format
+  genstat: *genstat_format
+  cfml: *cfml_format
+  asciidoc: *asciidoc_format
+
+  # * default
+  default: *default_delim
+
+  # ~ added languages compared to original extension
+  # https://github.com/Parth2031/Colorful-Comments
+  astro: *astro_delim
