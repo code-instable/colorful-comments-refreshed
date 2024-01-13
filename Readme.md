@@ -308,6 +308,33 @@ language_delim: &language_delim
 
 languages build upon the base arguments needed, and then add either `commentFormat`, `delimiter` or `escapeRegExp`, you can override properties of the base parameters.
 
+in the end a language config should match the following type (typescript):
+
+```ts
+interface LanguageConfig {
+    // must have at least one of these
+    delimiter?: string;
+    commentFormat?: string[];
+    escapeRegExp?: string;
+    // if needed
+    highlightJSDoc?: boolean;
+    // always has a value
+    ignoreFirstLine: boolean;
+    isPlainText: boolean;
+    supportedLanguage: boolean;
+}
+```
+
+
+the base :
+
+```yaml
+base: &base
+  supportedLanguage: true
+  ignoreFirstLine: false
+  isPlainText: false
+```
+
 example of escapeRegExp language : cobol
 
 ```cobol

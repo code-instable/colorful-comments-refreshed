@@ -1,8 +1,11 @@
 interface LanguageConfig {
+    // must have at least one of these
     delimiter?: string;
     commentFormat?: string[];
-    highlightJSDoc?: boolean;
     escapeRegExp?: string;
+    // if needed
+    highlightJSDoc?: boolean;
+    // always has a value
     ignoreFirstLine: boolean;
     isPlainText: boolean;
     supportedLanguage: boolean;
