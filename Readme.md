@@ -1,5 +1,7 @@
 # Colorful Comments
 
+[original extension](https://marketplace.visualstudio.com/items?itemName=ParthR2031.colorful-comments)
+
 The Colorful Comments Extension will help you create more human-friendly comments in your code.  
 With this Extension, you will be able to categorise your cody by special colour into:
 * Red (!)
@@ -101,6 +103,156 @@ The default 7 can be modifed to change the colors, and more can be added.
 ]
 ```
 
+another example :
+
+```json
+"colorful-comments.tags": [
+        {
+            "backgroundColor": "transparent",
+            "color": "#2C3A47",
+            "strikethrough": true,
+            "tag": "//"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#22a6b3",
+            "strikethrough": false,
+            "tag": "&"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#B33771",
+            "strikethrough": false,
+            "tag": "%"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#FD7272",
+            "strikethrough": false,
+            "tag": "@"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#686de0",
+            "strikethrough": false,
+            "tag": ">"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#58B19F",
+            "strikethrough": false,
+            "tag": "*"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#58B19F",
+            "strikethrough": false,
+            "tag": "☑️"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#58B19F",
+            "strikethrough": false,
+            "tag": "✅"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#FC427B",
+            "strikethrough": false,
+            "tag": "~"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#5352ed",
+            "strikethrough": false,
+            "tag": "£"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#5352ed",
+            "strikethrough": false,
+            "tag": "🔎"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#5352ed",
+            "strikethrough": false,
+            "tag": "🤔"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#ff7f50",
+            "strikethrough": false,
+            "tag": "$"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#ff7f50",
+            "strikethrough": false,
+            "tag": "⚠️"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#ff7f50",
+            "strikethrough": false,
+            "tag": "🚧"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#0097e6",
+            "strikethrough": false,
+            "tag": "🌐"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#0097e6",
+            "strikethrough": false,
+            "tag": "⚙️"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#ff9f43",
+            "strikethrough": false,
+            "tag": "💡"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#ff9f43",
+            "strikethrough": false,
+            "tag": "✏️"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#ff9f43",
+            "strikethrough": false,
+            "tag": "⭐"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#576574",
+            "tag": "δ"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#e84118",
+            "strikethrough": false,
+            "tag": "!"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#e84118",
+            "strikethrough": false,
+            "tag": "❌"
+        },
+        {
+            "backgroundColor": "transparent",
+            "color": "#0097e6",
+            "strikethrough": false,
+            "tag": "?"
+        }
+    ],
+```
+
 ## Supported Languages 
 
 * BrightScript
@@ -131,83 +283,115 @@ The default 7 can be modifed to change the colors, and more can be added.
 * TypeScript React
 * XML
 * YAML
+* Astro
 
-<!-- ## Supported Languages
+## Adding Language Support
 
-* Ada
-* AL
-* Apex
-* AsciiDoc
-* C
-* C#
-* C++
-* ColdFusion
-* Clojure
-* COBOL
-* CoffeeScript
-* CSS
-* Dart
-* Dockerfile
-* Elixir
-* Elm
-* Erlang
-* F#
-* Fortran
-* gdscript
-* GenStat
-* Go
-* GraphQL
-* Groovy
-* Haskell
-* Haxe
-* HiveQL
-* HTML
-* Java
-* JavaScript
-* JavaScript React
-* JSON with comments
-* Julia
-* Kotlin
-* LaTex (inlc. Bibtex/Biblatex)
-* Less
-* Lisp
-* Lua
-* Makefile
-* Markdown
-* Nim
-* MATLAB
-* Objective-C
-* Objective-C++
-* Pascal
-* Perl
-* Perl 6
-* PHP
-* Pig
-* PlantUML
-* PL/SQL
-* PowerShell
-* Puppet
-* Python
-* R
-* Racket
-* Ruby
-* Rust
-* SAS
-* Sass
-* Scala
-* SCSS
-* ShaderLab
-* ShellScript
-* SQL
-* STATA
-* Stylus
-* Swift
-* Tcl
-* Terraform
-* Twig
-* TypeScript
-* TypeScript React
-* Verilog
-* Visual Basic
-* Vue.js
-* YAML -->
+- [add an issue with tag "language support" on Github](https://github.com/allemand-instable/Colorful-Comments/issues)
+
+I can't do everything by myself so feel free when opening an issue to provide the yaml corresponding to your desired language :
+
+(src/parser/data/languageConfig.yaml)
+
+all possible fields :
+
+```yaml
+language_delim: &language_delim
+  supportedLanguage: true
+  ignoreFirstLine: false
+  isPlainText: false
+  commentFormat: ["//", "/*", "*/"]
+  highlightJSDoc: false
+  delimiter: "//"
+  escapeRegExp: "*>"
+```
+
+languages build upon the base arguments needed, and then add either `commentFormat`, `delimiter` or `escapeRegExp`, you can override properties of the base parameters.
+
+example of escapeRegExp language : cobol
+
+```cobol
+IDENTIFICATION DIVISION.
+PROGRAM-ID. SumArray.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VEC.
+   05 ITEM PIC 9 OCCURS 3 TIMES VALUE 1 2 3.
+01 SUM PIC 9 VALUE 0.
+01 I PIC 9.
+
+PROCEDURE DIVISION.
+* this command computes the sum of the vector's components
+PERFORM VARYING I FROM 1 BY 1 UNTIL I > 3
+    ADD ITEM(I) OF VEC TO SUM
+END-PERFORM.
+
+DISPLAY "Sum of array elements: " SUM.
+
+STOP RUN.
+```
+
+```yaml
+# this.delimiter = this.escapeRegExp( ... )
+cobol_delim: &cobol_delim
+  <<: *base
+  escapeRegExp: "*>"
+```
+
+example of language with both simple and multi line comments : python
+
+```python
+# this is a single line comment
+L = [1,2,3]
+"""
+this is a multiline comment
+"""
+sum(L)
+```
+
+```yaml
+python_delim: &python_delim
+  <<: *base
+  commentFormat: ["#", '"""', '""""']
+  ignoreFirstLine: true
+```
+
+or html :
+
+```html
+<p> a paragraph </p>
+<!-- this won't display
+
+and is multiline
+
+until i end with
+-->
+
+<div>how do I center it ?</div>
+```
+
+```yaml
+html_format: &html_format
+  <<: *base
+  commentFormat: ["<!--", "<!--", "-->"]
+```
+
+example of language with a single delimiter : r
+
+```r
+vec <- c(1,2,3)
+# this command computes the sum of the vector's components
+sum(vec)
+```
+
+```yaml
+hash_delim: &hash_delim
+  <<: *base               # uses &base as reference values (inherit)
+  delimiter: "#"
+
+language :
+  ...
+  r: *hash_delim
+  ...
+```
