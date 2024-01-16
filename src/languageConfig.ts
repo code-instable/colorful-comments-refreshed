@@ -716,6 +716,110 @@ export const doc : Config = {
                 "<!--",
                 "-->"
             ]
+        },
+        "svelte": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "//",
+                "<!--",
+                "-->"
+            ]
+        },
+        "rmd": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "#",
+                "<!--",
+                "-->"
+            ]
+        },
+        "json": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "//",
+                "/*",
+                "*/"
+            ],
+            "highlightJSDoc": false
+        },
+        "sass": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "//",
+                "/*",
+                "*/"
+            ],
+            "highlightJSDoc": false
+        },
+        "md": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "<!--",
+                "<!--",
+                "-->"
+            ]
+        },
+        "mojo": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": true,
+            "isPlainText": false,
+            "commentFormat": [
+                "#",
+                "\"\"\"",
+                "\"\"\"\""
+            ]
+        },
+        "markdown_latex_combined": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "%",
+                "<!--",
+                "-->"
+            ]
+        },
+        "applescript": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "--",
+                "(*",
+                "*)"
+            ]
+        },
+        "ahk": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "delimiter": ";"
+        },
+        "ahk2": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                ";",
+                "/*",
+                "*/"
+            ]
+        },
+        "gsc": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "delimiter": "//"
         }
     }
 };

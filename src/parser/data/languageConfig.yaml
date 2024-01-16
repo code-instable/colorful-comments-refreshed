@@ -46,7 +46,11 @@ terraform_format: &terraform_format
 twig_format: &twig_format
   <<: *base
   commentFormat: ["{#", "{#", "#}"]
-
+# $ added by allemand-instable
+rmd_delim: &rmd_delim
+  <<: *base
+  #               R       markdown
+  commentFormat: ["#", "<!--", "-->"]
 
 # * dash (-) delimiters
 double_dash_delim: &double_dash_delim
@@ -59,20 +63,34 @@ lua_format: &lua_format
 haskell_elm_format: &haskell_elm_format
   <<: *base
   commentFormat: ["--", "{-", "-}"]
-
+applescript_delim: &applescript_delim
+  <<: *base
+  commentFormat: ["--", "(*", "*)"]
 
 # * special char delimiters
 single_quote_delim: &single_quote_delim
   <<: *base
   delimiter: "'"
 
+double_slash_delim: &double_slash_delim
+  <<: *base
+  delimiter: "//"
+
+
 percent_delim: &percent_delim
   <<: *base
   delimiter: "%"
+markdown_latex_combined_delim : &markdown_latex_combined_delim
+  <<: *base
+  commentFormat: ["%", "<!--", "-->"]
 
 semicolon_delim: &semicolon_delim
   <<: *base
   delimiter: ";"
+
+ahk2: &ahk2
+  <<: *base
+  commentFormat: [";", "/*", "*/"]
 
 fortran_delim: &fortran_delim
   <<: *base
@@ -229,3 +247,14 @@ language:
   # ~ added languages compared to original extension
   # https://github.com/Parth2031/Colorful-Comments
   astro: *astro_delim
+  svelte: *astro_delim
+  rmd: *rmd_delim
+  json: *c_delim # same as jsonc even though there is no such thing as comment in json, but some files use jsonc convention but with .json in the end
+  sass: *c_delim
+  md: *html_format
+  mojo: *python_delim
+  markdown_latex_combined: *markdown_latex_combined_delim
+  applescript: *applescript_delim
+  ahk: *semicolon_delim
+  ahk2: *ahk2
+  gsc : *double_slash_delim
