@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.7.2b]
+
+* better description
+
 ## [0.7.2]
 
 * added languages :
@@ -15,10 +19,6 @@
         * v1
         * v2
     * Treyarch GSC
-
-$$
-% $ ok
-$$
 
 ## [0.7.1]
 

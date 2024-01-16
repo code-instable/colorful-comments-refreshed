@@ -2,7 +2,7 @@
 >
 > Colorful Comments is among my favorite vscode extensions, but has not received a single update since 2022, and submitting issue is impossible on the owner's repo. 
 >
-> This version aims at stay updated with upcoming and newly released languages or not very popular languages missing from the original package. If you wish to add a language not currently available in the extension, please follow the steps bellow ( section : Adding Language Support ) to submit a proper language support issue on the github repo of this extension
+> This version aims at staying updated with upcoming and newly released languages or not very popular languages missing from the original package. If you wish to add a language not currently available in the extension, please follow the steps bellow ( section : Adding Language Support ) to submit a proper language support issue on the github repo of this extension
 
 # Colorful Comments
 
@@ -39,6 +39,183 @@ When true, the tags (defaults: `! * ? // ~ & ^`) will be detected if they're the
 `colorful-comments-refreshed.tags`  
 The tags are the characters or sequences used to mark a comment for decoration.
 The default 7 can be modifed to change the colors, and more can be added.
+
+See at the very end of the README for config examples.
+
+## Supported Languages
+
+-   BrightScript
+-   C
+-   C#
+-   C++
+-   Clojure
+-   CSS
+-   Dart
+-   Dockerfile
+-   Groovy
+-   HTML
+-   Java
+-   Javascript
+-   JavaScript React
+-   JSON with comments
+-   Less
+-   Lua
+-   Markdown
+-   Objective-C
+-   Objective-C++
+-   PHP
+-   PowerShell
+-   Python
+-   Sass
+-   SCSS
+-   TypeScript
+-   TypeScript React
+-   XML
+-   YAML
+-   Astro
+- 
+
+## Adding Language Support
+
+-   [add an issue with tag "language support" on Github](https://github.com/allemand-instable/Colorful-Comments/issues)
+
+I can't do everything by myself so feel free when opening an issue to provide the yaml corresponding to your desired language :
+
+(src/parser/data/languageConfig.yaml)
+
+all possible fields :
+
+```yaml
+language_delim: &language_delim
+    supportedLanguage: true
+    ignoreFirstLine: false
+    isPlainText: false
+    commentFormat: ["//", "/*", "*/"]
+    highlightJSDoc: false
+    delimiter: "//"
+    escapeRegExp: "*>"
+```
+
+languages build upon the base arguments needed, and then add either `commentFormat`, `delimiter` or `escapeRegExp`, you can override properties of the base parameters.
+
+in the end a language config should match the following type (typescript):
+
+```ts
+interface LanguageConfig {
+    // must have at least one of these
+    delimiter?: string;
+    commentFormat?: string[];
+    escapeRegExp?: string;
+    // if needed
+    highlightJSDoc?: boolean;
+    // always has a value
+    ignoreFirstLine: boolean;
+    isPlainText: boolean;
+    supportedLanguage: boolean;
+}
+```
+
+the base :
+
+```yaml
+base: &base
+    supportedLanguage: true
+    ignoreFirstLine: false
+    isPlainText: false
+```
+
+example of escapeRegExp language : cobol
+
+```cobol
+IDENTIFICATION DIVISION.
+PROGRAM-ID. SumArray.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VEC.
+   05 ITEM PIC 9 OCCURS 3 TIMES VALUE 1 2 3.
+01 SUM PIC 9 VALUE 0.
+01 I PIC 9.
+
+PROCEDURE DIVISION.
+* this command computes the sum of the vector's components
+PERFORM VARYING I FROM 1 BY 1 UNTIL I > 3
+    ADD ITEM(I) OF VEC TO SUM
+END-PERFORM.
+
+DISPLAY "Sum of array elements: " SUM.
+
+STOP RUN.
+```
+
+```yaml
+# this.delimiter = this.escapeRegExp( ... )
+cobol_delim: &cobol_delim
+  <<: *base
+  escapeRegExp: "*>"
+```
+
+example of language with both simple and multi line comments : python
+
+```python
+# this is a single line comment
+L = [1,2,3]
+"""
+this is a multiline comment
+"""
+sum(L)
+```
+
+```yaml
+python_delim: &python_delim
+  <<: *base
+  commentFormat: ["#", '"""', '""""']
+  ignoreFirstLine: true
+```
+
+or html :
+
+```html
+<p>a paragraph</p>
+<!-- this won't display
+
+and is multiline
+
+until i end with
+-->
+
+<div>how do I center it ?</div>
+```
+
+```yaml
+html_format: &html_format
+  <<: *base
+  commentFormat: ["<!--", "<!--", "-->"]
+```
+
+example of language with a single delimiter : r
+
+```r
+vec <- c(1,2,3)
+# this command computes the sum of the vector's components
+sum(vec)
+```
+
+```yaml
+hash_delim: &hash_delim
+  <<: *base               # uses &base as reference values (inherit)
+  delimiter: "#"
+
+language :
+  ...
+  r: *hash_delim
+  ...
+```
+
+
+## config examples
+
+### original example
 
 ```json
 "colorful-comments-refreshed.tags": [
@@ -109,7 +286,7 @@ The default 7 can be modifed to change the colors, and more can be added.
 ]
 ```
 
-another example :
+### another example : allemand-instable
 
 ```json
 "colorful-comments-refreshed.tags": [
@@ -257,173 +434,4 @@ another example :
             "tag": "?"
         }
     ],
-```
-
-## Supported Languages
-
--   BrightScript
--   C
--   C#
--   C++
--   Clojure
--   CSS
--   Dart
--   Dockerfile
--   Groovy
--   HTML
--   Java
--   Javascript
--   JavaScript React
--   JSON with comments
--   Less
--   Lua
--   Markdown
--   Objective-C
--   Objective-C++
--   PHP
--   PowerShell
--   Python
--   Sass
--   SCSS
--   TypeScript
--   TypeScript React
--   XML
--   YAML
--   Astro
-
-## Adding Language Support
-
--   [add an issue with tag "language support" on Github](https://github.com/allemand-instable/Colorful-Comments/issues)
-
-I can't do everything by myself so feel free when opening an issue to provide the yaml corresponding to your desired language :
-
-(src/parser/data/languageConfig.yaml)
-
-all possible fields :
-
-```yaml
-language_delim: &language_delim
-    supportedLanguage: true
-    ignoreFirstLine: false
-    isPlainText: false
-    commentFormat: ["//", "/*", "*/"]
-    highlightJSDoc: false
-    delimiter: "//"
-    escapeRegExp: "*>"
-```
-
-languages build upon the base arguments needed, and then add either `commentFormat`, `delimiter` or `escapeRegExp`, you can override properties of the base parameters.
-
-in the end a language config should match the following type (typescript):
-
-```ts
-interface LanguageConfig {
-    // must have at least one of these
-    delimiter?: string;
-    commentFormat?: string[];
-    escapeRegExp?: string;
-    // if needed
-    highlightJSDoc?: boolean;
-    // always has a value
-    ignoreFirstLine: boolean;
-    isPlainText: boolean;
-    supportedLanguage: boolean;
-}
-```
-
-the base :
-
-```yaml
-base: &base
-    supportedLanguage: true
-    ignoreFirstLine: false
-    isPlainText: false
-```
-
-example of escapeRegExp language : cobol
-
-```cobol
-IDENTIFICATION DIVISION.
-PROGRAM-ID. SumArray.
-
-DATA DIVISION.
-WORKING-STORAGE SECTION.
-01 VEC.
-   05 ITEM PIC 9 OCCURS 3 TIMES VALUE 1 2 3.
-01 SUM PIC 9 VALUE 0.
-01 I PIC 9.
-
-PROCEDURE DIVISION.
-* this command computes the sum of the vector's components
-PERFORM VARYING I FROM 1 BY 1 UNTIL I > 3
-    ADD ITEM(I) OF VEC TO SUM
-END-PERFORM.
-
-DISPLAY "Sum of array elements: " SUM.
-
-STOP RUN.
-```
-
-```yaml
-# this.delimiter = this.escapeRegExp( ... )
-cobol_delim: &cobol_delim
-  <<: *base
-  escapeRegExp: "*>"
-```
-
-example of language with both simple and multi line comments : python
-
-```python
-# this is a single line comment
-L = [1,2,3]
-"""
-this is a multiline comment
-"""
-sum(L)
-```
-
-```yaml
-python_delim: &python_delim
-  <<: *base
-  commentFormat: ["#", '"""', '""""']
-  ignoreFirstLine: true
-```
-
-or html :
-
-```html
-<p>a paragraph</p>
-<!-- this won't display
-
-and is multiline
-
-until i end with
--->
-
-<div>how do I center it ?</div>
-```
-
-```yaml
-html_format: &html_format
-  <<: *base
-  commentFormat: ["<!--", "<!--", "-->"]
-```
-
-example of language with a single delimiter : r
-
-```r
-vec <- c(1,2,3)
-# this command computes the sum of the vector's components
-sum(vec)
-```
-
-```yaml
-hash_delim: &hash_delim
-  <<: *base               # uses &base as reference values (inherit)
-  delimiter: "#"
-
-language :
-  ...
-  r: *hash_delim
-  ...
 ```
