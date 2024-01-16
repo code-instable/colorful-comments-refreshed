@@ -73,7 +73,16 @@ See at the very end of the README for config examples.
 -   XML
 -   YAML
 -   Astro
-- 
+- R markdown (rmd)
+- Json with Comments, when as .json (json)
+- Svelte (svelte)
+- SASS (sass)
+- mojo (.🔥) (mojo)
+- Apple Script (applescript)
+- Auto Hot Key
+    - v1
+    - v2
+- Treyarch GSC
 
 ## Adding Language Support
 
