@@ -820,6 +820,34 @@ export const doc : Config = {
             "ignoreFirstLine": false,
             "isPlainText": false,
             "delimiter": "//"
+        },
+        "qlik": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "//",
+                "/*",
+                "*/"
+            ],
+            "highlightJSDoc": false
+        },
+        "systemverilog": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "//",
+                "/*",
+                "*/"
+            ],
+            "highlightJSDoc": false
+        },
+        "vhdl": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "delimiter": "--"
         }
     }
 };

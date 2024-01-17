@@ -258,3 +258,17 @@ language:
   ahk: *semicolon_delim
   ahk2: *ahk2
   gsc : *double_slash_delim
+
+  # $ language support requests
+  # * QLIK
+  # https://github.com/Parth2031/Colorful-Comments/issues/5
+  # according to extension : Gimly81.qlik
+  # github : https://github.com/Gimly/vscode-qlik
+  qlik: *c_delim
+  # * SystemVerilog
+  # https://github.com/Parth2031/Colorful-Comments/issues/12
+  # according to extension : mshr-h.veriloghdl
+  # github : https://github.com/mshr-h/vscode-verilog-hdl-support
+  systemverilog: *c_delim
+  vhdl: *double_dash_delim
+
