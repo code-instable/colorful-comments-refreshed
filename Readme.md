@@ -83,6 +83,9 @@ See at the very end of the README for config examples.
     - v1
     - v2
 - Treyarch GSC
+- Qlik
+- SystemVerilog
+- VHDL
 
 ## Adding Language Support
 
