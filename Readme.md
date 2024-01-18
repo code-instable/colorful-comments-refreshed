@@ -1,8 +1,14 @@
 > Why a fork of the original extension ?
 >
-> Colorful Comments is among my favorite vscode extensions, but has not received a single update since 2022, and submitting issue is impossible on the owner's repo. 
+> Colorful Comments is among my favorite vscode extensions, but has not received a single update since 2022, and the author does not seem active anymore, and thus not adressing issues on the project's repo. 
 >
 > This version aims at staying updated with upcoming and newly released languages or not very popular languages missing from the original package. If you wish to add a language not currently available in the extension, please follow the steps bellow ( section : Adding Language Support ) to submit a proper language support issue on the github repo of this extension
+>
+> Some changes have been made to make the addition new language support as easy and quickly as possible
+>
+> Some new features might also come
+
+If you like the effort, please consider rating (⭐️) the extension !
 
 # Colorful Comments
 
