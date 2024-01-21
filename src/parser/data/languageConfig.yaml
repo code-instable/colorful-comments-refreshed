@@ -271,4 +271,5 @@ language:
   # github : https://github.com/mshr-h/vscode-verilog-hdl-support
   systemverilog: *c_delim
   vhdl: *double_dash_delim
+  ignore: *hash_delim
 

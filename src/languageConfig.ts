@@ -848,6 +848,12 @@ export const doc : Config = {
             "ignoreFirstLine": false,
             "isPlainText": false,
             "delimiter": "--"
+        },
+        "ignore": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "delimiter": "#"
         }
     }
 };

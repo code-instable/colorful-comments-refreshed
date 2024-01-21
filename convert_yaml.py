@@ -1,10 +1,5 @@
-# ! ok
-# ? ok
-# ~ what ?
-# // bruh
-# todo meh
-# & pink
-# ^ yellow
+print("———————— [script] ————————")
+print("executing yaml to ts language configuration file conversion")
 
 import yaml
 import json
@@ -59,3 +54,6 @@ lines[-1] = '};\n'
 # Write the list back to the file
 with open(dst, 'w') as file:
     file.writelines(lines)
+    print(f"converted {src} to {dst}")
+
+print("———————— script ends here ————————")

@@ -41,5 +41,5 @@
         "titleBar.inactiveForeground": "#15202b99"
     },
     "peacock.color": "#42b883",
-    "explorer.excludeGitIgnore": true
+    "explorer.excludeGitIgnore": false
 }

@@ -6,4 +6,4 @@ src/**
 **/tsconfig.json
 **/.eslintrc.json
 **/*.map
-# **/*.ts
+**/*.ts

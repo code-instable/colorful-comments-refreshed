@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.7.5]
+
+* added languages :
+    * .gitignore (ignore)
+
 ## [0.7.4]
 * language support request :
     * [added SystemVerilog support](https://github.com/allemand-instable/Colorful-Comments/issues/2)
