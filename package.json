@@ -3,7 +3,7 @@
 	"displayName": "Colorful Comments Refreshed",
 	"icon": "icon.png",
 	"description": "Improve and Enhance your code and make it attractive by adding Colorful Comments",
-	"version": "0.7.4",
+	"version": "0.7.5",
 	"publisher": "AllemandInstable",
 	"author": {
 		"name": "Allemand Instable"
@@ -227,6 +227,5 @@
 		"vscode-test": "^1.4.0",
 		"@vscode/vsce": "^2.22.0"
 	},
-	"dependencies": {
-	}
+	"dependencies": {}
 }
