@@ -854,6 +854,12 @@ export const doc : Config = {
             "ignoreFirstLine": false,
             "isPlainText": false,
             "delimiter": "#"
+        },
+        "bat": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "delimiter": "@REM"
         }
     }
 };

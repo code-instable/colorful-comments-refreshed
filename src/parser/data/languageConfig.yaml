@@ -76,6 +76,9 @@ double_slash_delim: &double_slash_delim
   <<: *base
   delimiter: "//"
 
+bat_delim: &bat_delim
+  <<: *base
+  delimiter: "@REM"
 
 percent_delim: &percent_delim
   <<: *base
@@ -272,4 +275,4 @@ language:
   systemverilog: *c_delim
   vhdl: *double_dash_delim
   ignore: *hash_delim
-
+  bat: *bat_delim

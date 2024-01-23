@@ -92,6 +92,8 @@ See at the very end of the README for config examples.
 - Qlik
 - SystemVerilog
 - VHDL
+- gitignore (ignore)
+- Batch (bat)
 
 ## Adding Language Support
 

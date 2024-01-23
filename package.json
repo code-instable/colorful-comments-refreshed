@@ -125,7 +125,8 @@
 		"onLanguage:systemverilog",
 		"onLanguage:vhdl",
 		"onLanguage:qlik",
-		"onLanguage:ignore"
+		"onLanguage:ignore",
+		"onLanguage:bat"
 	],
 	"galleryBanner": {
 		"color": "#e3f4ff",

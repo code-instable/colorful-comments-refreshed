@@ -4,6 +4,7 @@
 
 * added languages :
     * .gitignore (ignore)
+    * Batch (bat)
 
 ## [0.7.4]
 * language support request :
