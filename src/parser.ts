@@ -270,7 +270,8 @@ export class Parser
     // sinon il s'agit de "default"
     else {
       this.supportedLanguage = false;
-      vscode.window.showErrorMessage("language is not supported by Colorful Comments, please add it to languageConfig.yaml")
+      const error_msg = "\"" + languageCode + "\"" + " language is not supported by Colorful Comments, please consider opening an issue on allemand-instable/Colorful-Comments github repository for language support.";
+      vscode.window.showInformationMessage(error_msg);
     }
   }
 
