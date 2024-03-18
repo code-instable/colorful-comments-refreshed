@@ -1,3 +1,5 @@
+echo "⚠️ do not use PNPM, use **NPM** otherwise vsce won't package and will error"
+
 # prompt for version in zsh
 echo 'make sure to modify :
     ▶ package.json
@@ -22,12 +24,16 @@ if [[ "$@" == *"--no-package"* ]]; then
     cp -r src/parser/data out/parser/
     # linting
     eslint src --ext ts
+elif [[ "$@" == *"--npm"* ]]; then
+    echo "➤ npm run compile"
+    # run pnpm compile
+    npm run compile
 elif [[ "$@" == *"--pnpm"* ]]; then
     echo "➤ pnpm run compile"
     # run pnpm compile
     pnpm run compile
 else
     echo "➤ vsce package --out vsix"
-  # package into vsix using pnpm run compile
-  vsce package --out vsix
+    # package into vsix using (p)npm run compile
+    vsce package --out vsix
 fi

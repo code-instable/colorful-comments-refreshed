@@ -426,7 +426,7 @@ export const doc : Config = {
         },
         "python": {
             "supportedLanguage": true,
-            "ignoreFirstLine": true,
+            "ignoreFirstLine": false,
             "isPlainText": false,
             "commentFormat": [
                 "#",
@@ -436,7 +436,7 @@ export const doc : Config = {
         },
         "elexir": {
             "supportedLanguage": true,
-            "ignoreFirstLine": true,
+            "ignoreFirstLine": false,
             "isPlainText": false,
             "commentFormat": [
                 "#",
@@ -771,7 +771,7 @@ export const doc : Config = {
         },
         "mojo": {
             "supportedLanguage": true,
-            "ignoreFirstLine": true,
+            "ignoreFirstLine": false,
             "isPlainText": false,
             "commentFormat": [
                 "#",
