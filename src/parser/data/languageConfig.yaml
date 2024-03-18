@@ -29,7 +29,7 @@ tcl_delim: &tcl_delim
 python_delim: &python_delim
   <<: *base
   commentFormat: ["#", '"""', '""""']
-  ignoreFirstLine: true
+  ignoreFirstLine: false
 #
 nim_delim: &nim_delim
   <<: *base
