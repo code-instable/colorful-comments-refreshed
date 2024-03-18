@@ -270,8 +270,11 @@ export class Parser
     // sinon il s'agit de "default"
     else {
       this.supportedLanguage = false;
-      const error_msg = "\"" + languageCode + "\"" + " language is not supported by Colorful Comments, please consider opening an issue on allemand-instable/Colorful-Comments github repository for language support.";
-      vscode.window.showInformationMessage(error_msg);
+      // TODO : implement proper pop up message with language usage tracking that respects the user
+      // ▶ comment by issue OP on how to :
+      // 🌐 https://github.com/allemand-instable/Colorful-Comments/issues/4#issuecomment-1996233324
+      // const error_msg = "\"" + languageCode + "\"" + " language is not supported by Colorful Comments, please consider opening an issue on allemand-instable/Colorful-Comments github repository for language support.";
+      // vscode.window.showInformationMessage(error_msg);
     }
   }
 
