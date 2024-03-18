@@ -5,6 +5,7 @@
 * added languages :
     * .gitignore (ignore)
     * Batch (bat)
+    * stopped not supported language spam with temporary fix, to be reworked soon
 
 ## [0.7.4]
 * language support request :
