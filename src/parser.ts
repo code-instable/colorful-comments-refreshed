@@ -32,8 +32,8 @@ export class Parser
   private expression: string = "";
 
   private delimiter: string = "";
-  private blockCommentStart: string = "";
-  private blockCommentEnd: string = "";
+  private blockCommentStart: string | string[] = "";
+  private blockCommentEnd: string | string[] = "";
 
   private highlightSingleLineComments = true;
   private highlightMultilineComments = false;
@@ -117,7 +117,6 @@ export class Parser
 	* Finds block comments as indicated by start and end delimiter
 	* @param activeEditor The active text editor containing the code document
   */
-  
   public FindBlockComments(activeEditor: vscode.TextEditor): void
   {
 
@@ -134,34 +133,50 @@ export class Parser
     let commentMatchString = "(^)+([ \\t]*[ \\t]*)(";
     commentMatchString += characters.join("|");
     commentMatchString += ")([ ]*|[:])+([^*/][^\\r\\n]*)";
-
+    
     let regexString = "(^|[ \\t])(";
-    regexString += this.blockCommentStart;
-    regexString += "[\\s])+([\\s\\S]*?)(";
-    regexString += this.blockCommentEnd;
-    regexString += ")";
 
-    let regEx = new RegExp(regexString, "gm");
-    let commentRegEx = new RegExp(commentMatchString, "igm");
+    let blockCommentStartTokens: string[] = [];
+    let blockCommentEndTokens: string[] = [];
 
-    let match: any;
+    if (typeof this.blockCommentStart === 'string' && typeof this.blockCommentEnd === 'string') {
+      blockCommentStartTokens.push(this.blockCommentStart);
+      blockCommentEndTokens.push(this.blockCommentEnd);
+    } else if (Array.isArray(this.blockCommentStart) && Array.isArray(this.blockCommentEnd)) {
+      blockCommentStartTokens = this.blockCommentStart;
+      blockCommentEndTokens = this.blockCommentEnd;
+    }
 
-    while (match = regEx.exec(text))
-    {
-      let commentBlock = match[0];
-
-      let line;
-      while (line = commentRegEx.exec(commentBlock))
+    // matches the regex for each style and push the ranges found for decoration
+    for (let i = 0; i < blockCommentStartTokens.length; i++) {
+      // defining the regex based on the style i
+      regexString += blockCommentStartTokens[i];
+      regexString += "[\\s])+([\\s\\S]*?)(";
+      regexString += blockCommentStartTokens[i];
+      regexString += ")";
+  
+      let regEx = new RegExp(regexString, "gm");
+      let commentRegEx = new RegExp(commentMatchString, "igm");
+  
+      let match: any;
+  
+      while (match = regEx.exec(text))
       {
-        let startPos = activeEditor.document.positionAt(match.index + line.index + line[2].length);
-        let endPos = activeEditor.document.positionAt(match.index + line.index + line[0].length);
-        let range: vscode.DecorationOptions = { range: new vscode.Range(startPos, endPos) };
-
-        let matchString = line[3] as string;
-        let matchTag = this.tags.find(item => item.tag.toLowerCase() === matchString.toLowerCase());
-
-        if (matchTag) {
-          matchTag.ranges.push(range);
+        let commentBlock = match[0];
+  
+        let line;
+        while (line = commentRegEx.exec(commentBlock))
+        {
+          let startPos = activeEditor.document.positionAt(match.index + line.index + line[2].length);
+          let endPos = activeEditor.document.positionAt(match.index + line.index + line[0].length);
+          let range: vscode.DecorationOptions = { range: new vscode.Range(startPos, endPos) };
+  
+          let matchString = line[3] as string;
+          let matchTag = this.tags.find(item => item.tag.toLowerCase() === matchString.toLowerCase());
+  
+          if (matchTag) {
+            matchTag.ranges.push(range);
+          }
         }
       }
     }
@@ -250,8 +265,23 @@ export class Parser
       this.isPlainText = languageConfig.isPlainText;
       // ~ varying parameters
       if (languageConfig.commentFormat) {
-        // format the comment style
+        // > style format in yaml :
+        // php: & php_delim
+        //   <<: * base
+        //   commentFormat: [
+        //     ["//", "<!--"], # single
+        //     ["/*", "<!--"],   # start
+        //     ["*/", "-->"]     # end
+        //   ]
         this.setCommentFormat(languageConfig.commentFormat[0], languageConfig.commentFormat[1], languageConfig.commentFormat[2]);
+        // TODO
+        // > style format in yaml :
+        // php: & php_delim
+        //   <<: * base
+        //   commentFormat: [
+        //     ["//", "/*", "*/"],
+        //     ["<!--", "<!--", "-->"]
+        //   ]
       }
       else if (languageConfig.escapeRegExp) {
         this.delimiter = this.escapeRegExp(languageConfig.escapeRegExp)
@@ -320,17 +350,40 @@ export class Parser
 	* @param end The end delimiter for block comments
   */
   
-  private setCommentFormat(singleLine: string | null, start: string, end: string): void
+  private setCommentFormat(singleLine: string | string[] | null, start: string | string[], end: string | string[]): void
   {
     if (singleLine) {
-      this.delimiter = this.escapeRegExp(singleLine);
+      if (typeof singleLine === 'string') {
+        // ~ single style
+        this.delimiter = this.escapeRegExp(singleLine);
+      } else if (Array.isArray(singleLine)) {
+        // ~ multiple styles | we can match multiple styles check if it is style1 | style2 | style3 ( OR )
+        this.delimiter = singleLine.map(s => this.escapeRegExp(s)).join("|");
+      }
     }
     else {
       this.highlightSingleLineComments = false;
     }
 
-    this.blockCommentStart = this.escapeRegExp(start);
-    this.blockCommentEnd = this.escapeRegExp(end);
-    this.highlightMultilineComments = this.contributions.multilineComments;
+    // multi_style_comments
+    // ex : php
+    // php style comments, and html style comments
+    // ex : astro
+    // html style comments, and js style comments
+
+    // ~ only one style
+    if (typeof start === 'string' && typeof end === 'string') {
+      this.blockCommentStart = this.escapeRegExp(start);
+      this.blockCommentEnd = this.escapeRegExp(end);
+      this.highlightMultilineComments = this.contributions.multilineComments;
+    }
+    // ~ multiple styles
+    else if (Array.isArray(start) && Array.isArray(end))
+    {
+      this.highlightMultilineComments = this.contributions.multilineComments;
+      this.blockCommentStart = start.map(s => this.escapeRegExp(s));
+      this.blockCommentEnd = end.map(e => this.escapeRegExp(e));
+
+    }
   }
 }

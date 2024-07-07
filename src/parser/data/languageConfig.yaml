@@ -2,12 +2,13 @@ base: &base
   supportedLanguage: true
   ignoreFirstLine: false
   isPlainText: false
+  highlightJSDoc: false
 
 # * C style delimiters
 c_delim: &c_delim
   <<: *base
   commentFormat: ["//", "/*", "*/"]
-  highlightJSDoc: false
+  # highlightJSDoc: false
 # 
 js_doc_delim: &js_doc_delim
   <<: *c_delim
@@ -171,7 +172,7 @@ language:
   less: *c_delim
   pascal: *c_delim
   objectpascal: *c_delim
-  php: *c_delim
+  # php: *c_delim
   rust: *c_delim
   scala: *c_delim
   scss: *c_delim
@@ -276,3 +277,17 @@ language:
   vhdl: *double_dash_delim
   ignore: *hash_delim
   bat: *bat_delim
+
+  # ~ multi-style
+  php: &php_delim
+    <<: *base
+    commentFormat: [
+      ["//", "/*", "*/"],
+      ["<!--", "<!--", "-->"]
+    ]
+    # il se pourrait que ce soit comme ça que j'ai codé
+    commentFormat: [
+      [ "//", "<!--" ], # single
+      ["/*", "<!--"],   # start
+      ["*/", "-->"]     # end
+    ]
