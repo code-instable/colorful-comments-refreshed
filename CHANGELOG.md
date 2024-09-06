@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.7.6]
+
+* added languages :
+    * KDL (kdl)
+
 ## [0.7.5]
 
 * added languages :

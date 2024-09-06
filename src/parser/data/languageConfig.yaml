@@ -276,3 +276,5 @@ language:
   vhdl: *double_dash_delim
   ignore: *hash_delim
   bat: *bat_delim
+  # * KDL config files (zellij)
+  kdl: *c_delim

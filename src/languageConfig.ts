@@ -860,6 +860,17 @@ export const doc : Config = {
             "ignoreFirstLine": false,
             "isPlainText": false,
             "delimiter": "@REM"
+        },
+        "kdl": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "//",
+                "/*",
+                "*/"
+            ],
+            "highlightJSDoc": false
         }
     }
 };
