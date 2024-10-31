@@ -57,6 +57,9 @@ rmd_delim: &rmd_delim
 double_dash_delim: &double_dash_delim
   <<: *base
   delimiter: "--"
+sql_delim: &sql_delim
+  <<: *bases
+  commentFormat: ["--", "/*", "*/"]
 lua_format: &lua_format
   <<: *base
   commentFormat: ["--", "--[[", "]]"]
@@ -216,7 +219,8 @@ language:
   hive-sql: *double_dash_delim
   pig: *double_dash_delim
   plsql: *double_dash_delim
-  sql: *double_dash_delim
+  # fixed by @xHorntail
+  sql: *sql_delim
   # $ multiline
   lua: *lua_format
   elm: *haskell_elm_format
