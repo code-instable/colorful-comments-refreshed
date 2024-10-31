@@ -1,10 +1,12 @@
 import * as vscode from 'vscode';
 import { Parser } from './parser';
+import { JupyterParser } from './jupyterParser';
 
 export function activate(context: vscode.ExtensionContext)
 {
 	let activeEditor: vscode.TextEditor | undefined;
 	let parser: Parser = new Parser();
+	let jupyterParser: JupyterParser = new JupyterParser();
 
 	let updateDecorations = function (useHash = false)
 	{
@@ -56,6 +58,25 @@ export function activate(context: vscode.ExtensionContext)
 
 		timeout = setTimeout(updateDecorations, 200);
 	}
+
+	// Add notebook support
+	vscode.workspace.onDidOpenNotebookDocument(async notebook => {
+		if (notebook.notebookType === 'jupyter') {
+			await jupyterParser.parseNotebook(notebook);
+		}
+	}, null, context.subscriptions);
+
+	vscode.workspace.onDidChangeNotebookDocument(async event => {
+		if (event.notebook.notebookType === 'jupyter') {
+			await jupyterParser.parseNotebook(event.notebook);
+		}
+	}, null, context.subscriptions);
+
+	vscode.window.onDidChangeActiveNotebookEditor(async editor => {
+		if (editor?.notebook.notebookType === 'jupyter') {
+			await jupyterParser.parseNotebook(editor.notebook);
+		}
+	}, null, context.subscriptions);
 }
 
 export function deactivate() { }

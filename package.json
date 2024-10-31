@@ -130,6 +130,9 @@
 		"onLanguage:kdl",
 		"onLanguage:wolfram",
 		"onLanguage:nix",
+		"onLanguage:jupyter",
+		"onNotebook:jupyter-notebook",
+		"onNotebook:interactive"
 	],
 	"galleryBanner": {
 		"color": "#e3f4ff",
