@@ -1,5 +1,17 @@
 # Change Log
 
+## [0.7.7]
+
+* added languages :
+    * Wolfram (.wl, .wls) (wolfram)
+    * Nix (.nix) (nix)
+    * KDL (.kdl) (kdl)
+* Jupyter Notebook support (ipynb)
+
+### fixes :
+
+* SQL comments now work with `--` and `/* */` comments  (thx @xHorntail)
+
 ## [0.7.6]
 
 * added languages :
