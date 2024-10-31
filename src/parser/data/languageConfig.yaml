@@ -58,7 +58,7 @@ double_dash_delim: &double_dash_delim
   <<: *base
   delimiter: "--"
 sql_delim: &sql_delim
-  <<: *bases
+  <<: *base
   commentFormat: ["--", "/*", "*/"]
 lua_format: &lua_format
   <<: *base
