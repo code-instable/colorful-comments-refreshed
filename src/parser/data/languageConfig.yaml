@@ -29,7 +29,8 @@ tcl_delim: &tcl_delim
 python_delim: &python_delim
   <<: *base
   commentFormat: ["#", '"""', '""""']
-  ignoreFirstLine: false
+  # technically, python does not have block comments, but this is a convention
+  # note that multi-line strings won't be highlighted then
 #
 nim_delim: &nim_delim
   <<: *base
@@ -136,6 +137,12 @@ plaintext_delim: &plaintext_delim
   isPlainText: true
   # if true
   # this.supportedLanguage = this.contributions.highlightPlainText;
+
+
+# * Wolfram
+parenthesis_star: &parenthesis_star
+  <<: *base
+  commentFormat: ["(*", "(*", "*)"]
 
 # ! default
 default_delim: &default_delim
@@ -278,3 +285,6 @@ language:
   bat: *bat_delim
   # * KDL config files (zellij)
   kdl: *c_delim
+  wolfram: *parenthesis_star
+  nix: *terraform_format
+  toml: *hash_delim

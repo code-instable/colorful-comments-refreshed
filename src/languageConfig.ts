@@ -871,6 +871,26 @@ export const doc : Config = {
                 "*/"
             ],
             "highlightJSDoc": false
+        },
+        "wolfram": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "(*",
+                "(*",
+                "*)"
+            ]
+        },
+        "nix": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "#",
+                "/*",
+                "*/"
+            ]
         }
     }
 };

@@ -127,7 +127,9 @@
 		"onLanguage:qlik",
 		"onLanguage:ignore",
 		"onLanguage:bat",
-		"onLanguage:kdl"
+		"onLanguage:kdl",
+		"onLanguage:wolfram",
+		"onLanguage:nix",
 	],
 	"galleryBanner": {
 		"color": "#e3f4ff",
