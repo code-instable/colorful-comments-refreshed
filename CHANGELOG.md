@@ -1,5 +1,21 @@
 # Change Log
 
+## [0.7.9]
+
+### for the people (users)
+* languages (?) :
+  * SAS ? (added sas, SAS as identifiers)
+  * ShaderLab
+  * D
+  * brightscript (fix ?)
+  * explicit plaintext
+
+### for contributors
+* automated build process for easier implementation in the future
+  * (basically for contributors and me, yay)
+* a bit cleaner code base
+
+
 ## [0.7.7]
 
 * added languages :
