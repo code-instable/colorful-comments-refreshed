@@ -3,6 +3,8 @@
 ## [0.7.9]
 
 * cleaned README a bit...
+* modified repository name
+  * from Colorful-Comments to colorful-comments-refreshed
 
 ### for the people (users)
 * languages (?) :
