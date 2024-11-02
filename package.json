@@ -8,13 +8,13 @@
 	"author": {
 		"name": "Allemand Instable"
 	},
-	"homepage": "https://github.com/allemand-instable/Colorful-Comments/master/README.md",
+	"homepage": "https://github.com/allemand-instable/colorful-comments-refreshed/master/README.md",
 	"license": "SEE LICENSE IN LICENSE.md",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/allemand-instable/Colorful-Comments"
 	},
-	"bugs": "https://github.com/allemand-instable/Colorful-Comments/issues",
+	"bugs": "https://github.com/allemand-instable/colorful-comments-refreshed/issues",
 	"engines": {
 		"vscode": "^1.85.0"
 	},

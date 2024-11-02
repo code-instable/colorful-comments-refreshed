@@ -97,7 +97,7 @@ See at the very end of the README for config examples.
 
 ## Adding Language Support
 
--   [add an issue with tag "language support" on Github](https://github.com/allemand-instable/Colorful-Comments/issues)
+-   [add an issue with tag "language support" on Github](https://github.com/allemand-instable/colorful-comments-refreshed/issues)
 
 I can't do everything by myself so feel free when opening an issue to provide the yaml corresponding to your desired language :
 

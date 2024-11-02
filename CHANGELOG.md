@@ -26,10 +26,10 @@
 
 ## [0.7.4]
 * language support request :
-    * [added SystemVerilog support](https://github.com/allemand-instable/Colorful-Comments/issues/2)
-    * [added Qlik support](https://github.com/allemand-instable/Colorful-Comments/issues/1)
+    * [added SystemVerilog support](https://github.com/allemand-instable/colorful-comments-refreshed/issues/2)
+    * [added Qlik support](https://github.com/allemand-instable/colorful-comments-refreshed/issues/1)
 
-you can ask for language support or feature request by [submitting an issue](https://github.com/allemand-instable/Colorful-Comments/issues)
+you can ask for language support or feature request by [submitting an issue](https://github.com/allemand-instable/colorful-comments-refreshed/issues)
 
 ## [0.7.2b-0.7.3]
 * better description

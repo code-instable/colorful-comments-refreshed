@@ -291,4 +291,5 @@ language:
   kdl: *c_delim
   wolfram: *parenthesis_star
   nix: *terraform_format
+  # https://github.com/allemand-instable/colorful-comments-refreshed/issues/12
   toml: *hash_delim

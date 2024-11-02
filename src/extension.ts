@@ -59,7 +59,8 @@ export function activate(context: vscode.ExtensionContext)
 		timeout = setTimeout(updateDecorations, 200);
 	}
 
-	// Add notebook support
+	// ⭐ Add notebook support ——————
+	// https://github.com/allemand-instable/colorful-comments-refreshed/issues/7
 	vscode.workspace.onDidOpenNotebookDocument(async notebook => {
 		if (notebook.notebookType === 'jupyter') {
 			await jupyterParser.parseNotebook(notebook);
@@ -77,6 +78,7 @@ export function activate(context: vscode.ExtensionContext)
 			await jupyterParser.parseNotebook(editor.notebook);
 		}
 	}, null, context.subscriptions);
+	// —————————————————————————————
 }
 
 export function deactivate() { }
