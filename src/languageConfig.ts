@@ -498,7 +498,11 @@ export const doc : Config = {
             "supportedLanguage": true,
             "ignoreFirstLine": false,
             "isPlainText": false,
-            "delimiter": "--"
+            "commentFormat": [
+                "--",
+                "/*",
+                "*/"
+            ]
         },
         "lua": {
             "supportedLanguage": true,
@@ -891,6 +895,12 @@ export const doc : Config = {
                 "/*",
                 "*/"
             ]
+        },
+        "toml": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "delimiter": "#"
         }
     }
 };
