@@ -2,6 +2,8 @@
 
 ## [0.7.9]
 
+* cleaned README a bit...
+
 ### for the people (users)
 * languages (?) :
   * SAS ? (added sas, SAS as identifiers)
