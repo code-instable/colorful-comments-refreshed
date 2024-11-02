@@ -105,6 +105,28 @@ export const doc : Config = {
             ],
             "highlightJSDoc": false
         },
+        "objective-c": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "//",
+                "/*",
+                "*/"
+            ],
+            "highlightJSDoc": false
+        },
+        "objective-cpp": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "//",
+                "/*",
+                "*/"
+            ],
+            "highlightJSDoc": false
+        },
         "dart": {
             "supportedLanguage": true,
             "ignoreFirstLine": false,
@@ -434,7 +456,7 @@ export const doc : Config = {
                 "\"\"\"\""
             ]
         },
-        "elexir": {
+        "elixir": {
             "supportedLanguage": true,
             "ignoreFirstLine": false,
             "isPlainText": false,
@@ -533,12 +555,6 @@ export const doc : Config = {
                 "{-",
                 "-}"
             ]
-        },
-        "brightscript": {
-            "supportedLanguage": true,
-            "ignoreFirstLine": false,
-            "isPlainText": false,
-            "delimiter": "'"
         },
         "diagram": {
             "supportedLanguage": true,
@@ -647,6 +663,16 @@ export const doc : Config = {
             "delimiter": "c"
         },
         "SAS": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "*",
+                "/*",
+                "*/"
+            ]
+        },
+        "sas": {
             "supportedLanguage": true,
             "ignoreFirstLine": false,
             "isPlainText": false,
@@ -824,6 +850,39 @@ export const doc : Config = {
             "ignoreFirstLine": false,
             "isPlainText": false,
             "delimiter": "//"
+        },
+        "plaintext": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": true
+        },
+        "shaderlab": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "//",
+                "/*",
+                "*/"
+            ],
+            "highlightJSDoc": false
+        },
+        "d": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "//",
+                "/*",
+                "*/"
+            ],
+            "highlightJSDoc": false
+        },
+        "brightscript": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "delimiter": "'"
         },
         "qlik": {
             "supportedLanguage": true,

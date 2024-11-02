@@ -1,30 +1,11 @@
 import * as vscode from 'vscode';
-
-// precompiled yaml to typescript for compilation
+// * interfaces
+import { CommentTag } from "./parser/interfaces/CommentTag";
+import { Contributions } from "./parser/interfaces/Contributions";
+// ! precompiled yaml to typescript for compilation
 // npm run compile :
 //        python convert_yaml.py
 import { doc } from "./languageConfig";
-
-interface CommentTag
-{
-  tag: string;
-  escapedTag: string;
-  decoration: vscode.TextEditorDecorationType;
-  ranges: Array<vscode.DecorationOptions>;
-}
-
-interface Contributions
-{
-  multilineComments: boolean;
-  useJSDocStyle: boolean;
-  highlightPlainText: boolean;
-  tags: [{
-    tag: string;
-    color: string;
-    strikethrough: boolean;
-    backgroundColor: string;
-  }];
-}
 
 export class Parser
 {

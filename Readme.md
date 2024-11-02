@@ -10,7 +10,7 @@
 
 If you like the effort, please consider rating (⭐️) the extension !
 
-# Colorful Comments
+# Colorful Comments (Refreshed)
 
 [original extension](https://marketplace.visualstudio.com/items?itemName=ParthR2031.colorful-comments)
 
@@ -50,50 +50,7 @@ See at the very end of the README for config examples.
 
 ## Supported Languages
 
--   BrightScript
--   C
--   C#
--   C++
--   Clojure
--   CSS
--   Dart
--   Dockerfile
--   Groovy
--   HTML
--   Java
--   Javascript
--   JavaScript React
--   JSON with comments
--   Less
--   Lua
--   Markdown
--   Objective-C
--   Objective-C++
--   PHP
--   PowerShell
--   Python
--   Sass
--   SCSS
--   TypeScript
--   TypeScript React
--   XML
--   YAML
--   Astro
-- R markdown (rmd)
-- Json with Comments, when as .json (json)
-- Svelte (svelte)
-- SASS (sass)
-- mojo (.🔥) (mojo)
-- Apple Script (applescript)
-- Auto Hot Key
-    - v1
-    - v2
-- Treyarch GSC
-- Qlik
-- SystemVerilog
-- VHDL
-- gitignore (ignore)
-- Batch (bat)
+One can look for all implemented languages in [The following implementation list](implemented_languages.md)
 
 ## Adding Language Support
 

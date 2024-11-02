@@ -168,6 +168,10 @@ language:
   c: *c_delim
   cpp: *c_delim
   csharp: *c_delim
+  # fix : missing
+  objective-c: *c_delim
+  objective-cpp: *c_delim
+
   dart: *c_delim
   flax: *c_delim
   fsharp: *c_delim
@@ -208,7 +212,7 @@ language:
   yaml: *hash_delim
   # $ python style delimiter
   python: *python_delim
-  elexir: *python_delim
+  elixir: *python_delim
   # $ other
   tcl: *tcl_delim
   nim: *nim_delim
@@ -227,7 +231,6 @@ language:
   haskell: *haskell_elm_format
 
   # * " delimiters
-  brightscript: *single_quote_delim
   diagram: *single_quote_delim
   vb: *single_quote_delim
   # * % delimiters
@@ -248,7 +251,11 @@ language:
   terraform: *terraform_format
   COBOL: *cobol_delim
   fortran-modern: *fortran_delim
+  # 
   SAS: *sas_stata_format
+  # extension : SAS.sas-lsp
+  # onLanguage:sas
+  sas: *sas_stata_format
   stata: *sas_stata_format
   twig: *twig_format
   genstat: *genstat_format
@@ -272,6 +279,15 @@ language:
   ahk: *semicolon_delim
   ahk2: *ahk2
   gsc : *double_slash_delim
+
+
+  # fix : missing
+  plaintext: *plaintext_delim
+  # > //, /*, */
+  shaderlab: *c_delim
+  d: *c_delim
+  # > '
+  brightscript: *single_quote_delim
 
   # $ language support requests
   # * QLIK

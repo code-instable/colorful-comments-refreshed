@@ -1,0 +1,160 @@
+activationEvents:
+- onLanguage:javascript
+- onLanguage:typescript
+- onLanguage:javascriptreact
+- onLanguage:typescriptreact
+- onLanguage:apex
+- onLanguage:c
+- onLanguage:cpp
+- onLanguage:csharp
+- onLanguage:objective-c
+- onLanguage:objective-cpp
+- onLanguage:dart
+- onLanguage:flax
+- onLanguage:fsharp
+- onLanguage:go
+- onLanguage:al
+- onLanguage:groovy
+- onLanguage:haxe
+- onLanguage:java
+- onLanguage:jsonc
+- onLanguage:kotlin
+- onLanguage:less
+- onLanguage:pascal
+- onLanguage:objectpascal
+- onLanguage:php
+- onLanguage:rust
+- onLanguage:scala
+- onLanguage:scss
+- onLanguage:stylus
+- onLanguage:swift
+- onLanguage:verilog
+- onLanguage:vue
+- onLanguage:css
+- onLanguage:coffeescript
+- onLanguage:dockerfile
+- onLanguage:gdscript
+- onLanguage:graphql
+- onLanguage:julia
+- onLanguage:makefile
+- onLanguage:perl
+- onLanguage:perl6
+- onLanguage:puppet
+- onLanguage:r
+- onLanguage:ruby
+- onLanguage:shellscript
+- onLanguage:yaml
+- onLanguage:python
+- onLanguage:elixir
+- onLanguage:tcl
+- onLanguage:nim
+- onLanguage:powershell
+- onLanguage:ada
+- onLanguage:hive-sql
+- onLanguage:pig
+- onLanguage:plsql
+- onLanguage:sql
+- onLanguage:lua
+- onLanguage:elm
+- onLanguage:haskell
+- onLanguage:diagram
+- onLanguage:vb
+- onLanguage:bibtex
+- onLanguage:erlang
+- onLanguage:latex
+- onLanguage:matlab
+- onLanguage:clojure
+- onLanguage:racket
+- onLanguage:lisp
+- onLanguage:html
+- onLanguage:markdown
+- onLanguage:xml
+- onLanguage:terraform
+- onLanguage:COBOL
+- onLanguage:fortran-modern
+- onLanguage:SAS
+- onLanguage:sas
+- onLanguage:stata
+- onLanguage:twig
+- onLanguage:genstat
+- onLanguage:cfml
+- onLanguage:asciidoc
+- onLanguage:default
+- onLanguage:astro
+- onLanguage:svelte
+- onLanguage:rmd
+- onLanguage:json
+- onLanguage:sass
+- onLanguage:md
+- onLanguage:mojo
+- onLanguage:markdown_latex_combined
+- onLanguage:applescript
+- onLanguage:ahk
+- onLanguage:ahk2
+- onLanguage:gsc
+- onLanguage:plaintext
+- onLanguage:shaderlab
+- onLanguage:d
+- onLanguage:brightscript
+- onLanguage:qlik
+- onLanguage:systemverilog
+- onLanguage:vhdl
+- onLanguage:ignore
+- onLanguage:bat
+- onLanguage:kdl
+- onLanguage:wolfram
+- onLanguage:nix
+- onLanguage:toml
+- onNotebook:jupyter-notebook
+- onNotebook:interactive
+- onNotebook:sas-notebook
+contributes:
+  configuration:
+    properties:
+      colorful-comments-refreshed.highlightPlainText:
+        default: false
+        description: Whether the plaintext comment highlighter should be active
+        type: boolean
+      colorful-comments-refreshed.multilineComments:
+        default: true
+        description: Whether the multiline comment highlighter should be active
+        type: boolean
+      colorful-comments-refreshed.tags:
+        default:
+        - backgroundColor: transparent
+          color: '#FF2D00'
+          strikethrough: false
+          tag: '!'
+        - backgroundColor: transparent
+          color: '#0076FF'
+          strikethrough: false
+          tag: '?'
+        - backgroundColor: transparent
+          color: '#474747'
+          strikethrough: true
+          tag: //
+        - backgroundColor: transparent
+          color: '#EAF622'
+          strikethrough: false
+          tag: ^
+        - backgroundColor: transparent
+          color: '#28FF00'
+          strikethrough: false
+          tag: '*'
+        - backgroundColor: transparent
+          color: '#FF06A0'
+          strikethrough: false
+          tag: '&'
+        - backgroundColor: transparent
+          color: '#BE00FF'
+          strikethrough: false
+          tag: '~'
+        - backgroundColor: transparent
+          color: '#FF8C00'
+          strikethrough: false
+          tag: todo
+        description: Tags which are used to color the comments. Changes require a
+          restart of VS Code to take effect
+        type: array
+    title: Colorful Comments Refreshed Configuration
+version: 0.7.9
