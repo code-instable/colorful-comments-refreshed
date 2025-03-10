@@ -2,6 +2,9 @@ import * as vscode from 'vscode';
 import { Parser } from './parser';
 import { JupyterParser } from './jupyterParser';
 
+// Create and export a debug output channel
+export const debugChannel = vscode.window.createOutputChannel('Colorful Comments Debug');
+
 export function activate(context: vscode.ExtensionContext)
 {
 	let activeEditor: vscode.TextEditor | undefined;

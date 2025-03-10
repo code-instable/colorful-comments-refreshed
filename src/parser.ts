@@ -6,6 +6,8 @@ import { Contributions } from "./parser/interfaces/Contributions";
 // npm run compile :
 //        python convert_yaml.py
 import { doc } from "./languageConfig";
+// Import the debug channel
+import { debugChannel } from './extension';
 
 export class Parser
 {
@@ -245,7 +247,9 @@ export class Parser
         // error : missing key
         // should have either delimiter, commentFormat, escapeRegExp
         this.supportedLanguage = false;
-        vscode.window.showErrorMessage("should have either delimiter, commentFormat, escapeRegExp : none provided")
+        // vscode.window.showErrorMessage("should have either delimiter, commentFormat, escapeRegExp : none provided")
+        // [ERROR:time]
+        debugChannel.appendLine(`[ERROR:${new Date().toLocaleTimeString()}] Language config for "${languageCode}" is missing required parameters (delimiter, commentFormat, or escapeRegExp), settting supportedLanguage to false.`);
       }
     }
     // sinon il s'agit de "default"
