@@ -16,7 +16,7 @@
   },
   "bugs": "https://github.com/allemand-instable/colorful-comments-refreshed/issues",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.98.0"
   },
   "categories": [
     "Formatters"
@@ -221,19 +221,17 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/glob": "^7.1.3",
-    "@types/mocha": "^8.0.3",
-    "@types/node": "^14.14.0",
-    "@types/vscode": "^1.48.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^8.2.3",
+    "@types/node": "^14.18.63",
+    "@types/vscode": "^1.98.0",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
-    "@vscode/test-electron": "^2.3.9",
-    "@vscode/vsce": "^2.24.0",
-    "eslint": "^7.11.0",
-    "glob": "^7.1.6",
-    "mocha": "^8.2.0",
-    "typescript": "^5.4.2",
-    "vsce": "^1.103.1",
-    "vscode-test": "^1.6.1"
+    "@vscode/test-electron": "^2.4.1",
+    "@vscode/vsce": "^2.32.0",
+    "eslint": "^7.32.0",
+    "glob": "^7.2.3",
+    "mocha": "^8.4.0",
+    "typescript": "^5.8.2"
   }
 }
