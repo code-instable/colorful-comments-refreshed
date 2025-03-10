@@ -10,6 +10,7 @@ echo 'make sure to modify :
         ▶ "version"
         ▶ "package" → "" → "version"
 '
+mkdir -p vsix
 
 # check if --no-package argument is passed
 if [[ "$@" == *"--no-package"* ]]; then
