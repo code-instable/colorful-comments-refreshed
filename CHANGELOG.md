@@ -2,6 +2,7 @@
 
 ## [0.7.9]
 
+* **Finally** moved error to "Colorful Comments Debug" output channel instead of sending an error notification to the user
 * cleaned README a bit...
 * modified repository name
   * from Colorful-Comments to colorful-comments-refreshed
