@@ -183,8 +183,13 @@ contributes:
             strikethrough: false
             backgroundColor: transparent
 scripts:
+  # Prefer using `just` (if installed) to run the canonical recipes from the repo's Justfile;
+  # fall back to calling the repository scripts directly so npm users still work.
+  gen-pkg: command -v just >/dev/null 2>&1 && just gen-pkg || python3 scripts/convert_packages_yaml.py package.yaml package.json
+  gen-ts: command -v just >/dev/null 2>&1 && just gen-ts || python3 scripts/gen_ts_language_config.py
+  compile: command -v just >/dev/null 2>&1 && just compile || (python3 scripts/convert_packages_yaml.py package.yaml package.json && python3 scripts/gen_ts_language_config.py && tsc -p ./)
+  # vsce expects `vscode:prepublish` when packaging from npm; keep it delegating to compile
   vscode:prepublish: npm run compile
-  compile: python convert_yaml.py && tsc -p ./
   lint: eslint src --ext ts
   watch: tsc -watch -p ./
   pretest: npm run compile && npm run lint
