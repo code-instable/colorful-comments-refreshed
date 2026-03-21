@@ -148,7 +148,26 @@ contributes:
         default: false
       colorful-comments-refreshed.tags:
         type: array
-        description: Tags which are used to color the comments. Changes require a restart of VS Code to take effect
+        description: Tags which are used to color the comments. Changes require a restart of VS Code to take effect. Set 'isRegex' to true to use regex patterns instead of literal strings.
+        items:
+          type: object
+          properties:
+            tag:
+              type: string
+              description: The tag text or regex pattern to match
+            color:
+              type: string
+              description: The color to apply to the matched comment
+            strikethrough:
+              type: boolean
+              description: Whether to apply strikethrough styling
+            backgroundColor:
+              type: string
+              description: The background color to apply
+            isRegex:
+              type: boolean
+              description: "When true, the tag is treated as a regex pattern. Use capture group (parentheses) to color only the captured portion. If no capture group is present, the entire match is colored."
+              default: false
         default:
           - tag: '!'
             color: '#FF2D00'
