@@ -2,168 +2,140 @@ base: &base
   supportedLanguage: true
   ignoreFirstLine: false
   isPlainText: false
-
 # * C style delimiters
 c_delim: &c_delim
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["//", "/*", "*/"]
   highlightJSDoc: false
 # 
 js_doc_delim: &js_doc_delim
-  <<: *c_delim
+  !!merge <<: *c_delim
   highlightJSDoc: true
 # 
 css_delim: &css_delim
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["/*", "/*", "*/"]
-  
 # * hash (#) delimiters
 hash_delim: &hash_delim
-  <<: *base
+  !!merge <<: *base
   delimiter: "#"
 # 
 tcl_delim: &tcl_delim
-  <<: *hash_delim
+  !!merge <<: *hash_delim
   ignoreFirstLine: true
 # 
 python_delim: &python_delim
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["#", '"""', '""""']
   # technically, python does not have block comments, but this is a convention
   # note that multi-line strings won't be highlighted then
 #
 nim_delim: &nim_delim
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["#", "#[", "]#"]
 #
 powershell_delim: &powershell_delim
-  <<: *base
-  commentFormat: ["#", "<#", "#>" ]
+  !!merge <<: *base
+  commentFormat: ["#", "<#", "#>"]
 #
 terraform_format: &terraform_format
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["#", "/*", "*/"]
-
 twig_format: &twig_format
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["{#", "{#", "#}"]
 # $ added by allemand-instable
 rmd_delim: &rmd_delim
-  <<: *base
+  !!merge <<: *base
   #               R       markdown
   commentFormat: ["#", "<!--", "-->"]
-
 # * dash (-) delimiters
 double_dash_delim: &double_dash_delim
-  <<: *base
+  !!merge <<: *base
   delimiter: "--"
 sql_delim: &sql_delim
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["--", "/*", "*/"]
 lua_format: &lua_format
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["--", "--[[", "]]"]
-
 haskell_elm_format: &haskell_elm_format
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["--", "{-", "-}"]
 applescript_delim: &applescript_delim
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["--", "(*", "*)"]
-
 # * special char delimiters
 single_quote_delim: &single_quote_delim
-  <<: *base
+  !!merge <<: *base
   delimiter: "'"
-
 double_slash_delim: &double_slash_delim
-  <<: *base
+  !!merge <<: *base
   delimiter: "//"
-
 bat_delim: &bat_delim
-  <<: *base
+  !!merge <<: *base
   delimiter: "@REM"
-
 percent_delim: &percent_delim
-  <<: *base
+  !!merge <<: *base
   delimiter: "%"
-markdown_latex_combined_delim : &markdown_latex_combined_delim
-  <<: *base
+markdown_latex_combined_delim: &markdown_latex_combined_delim
+  !!merge <<: *base
   commentFormat: ["%", "<!--", "-->"]
-
 semicolon_delim: &semicolon_delim
-  <<: *base
+  !!merge <<: *base
   delimiter: ";"
-
 ahk2: &ahk2
-  <<: *base
+  !!merge <<: *base
   commentFormat: [";", "/*", "*/"]
-
 fortran_delim: &fortran_delim
-  <<: *base
+  !!merge <<: *base
   delimiter: "c"
-
 sas_stata_format: &sas_stata_format
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["*", "/*", "*/"]
-
 genstat_format: &genstat_format
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["\\", '"', '"']
-
 asciidoc_format: &asciidoc_format
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["//", "////", "////"]
-
 # * html style delimiters
 html_format: &html_format
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["<!--", "<!--", "-->"]
-
 cfml_format: &cfml_format
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["<!---", "<!---", "--->"]
-
 astro_delim: &astro_delim
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["//", "<!--", "-->"]
-
 # * regExp delimiters
 # this.delimiter = this.escapeRegExp( ... )
 cobol_delim: &cobol_delim
-  <<: *base
+  !!merge <<: *base
   escapeRegExp: "*>"
-
 # * plaintext
 plaintext_delim: &plaintext_delim
-  <<: *base
+  !!merge <<: *base
   isPlainText: true
   # if true
   # this.supportedLanguage = this.contributions.highlightPlainText;
-
-
 # * Wolfram
 parenthesis_star: &parenthesis_star
-  <<: *base
+  !!merge <<: *base
   commentFormat: ["(*", "(*", "*)"]
-
 # ! default
 default_delim: &default_delim
-  <<: *base
+  !!merge <<: *base
   supportedLanguage: false
-
-
 # ——————————————————————————————————————————— #
-
-
 language:
   # * js doc style delimiter
-  javascript:       *js_doc_delim
-  typescript:       *js_doc_delim
-  javascriptreact:  *js_doc_delim
-  typescriptreact:  *js_doc_delim
-  apex:             *js_doc_delim
-
+  javascript: *js_doc_delim
+  typescript: *js_doc_delim
+  javascriptreact: *js_doc_delim
+  typescriptreact: *js_doc_delim
+  apex: *js_doc_delim
   # * C style delimiter
   c: *c_delim
   cpp: *c_delim
@@ -171,7 +143,6 @@ language:
   # fix : missing
   objective-c: *c_delim
   objective-cpp: *c_delim
-
   dart: *c_delim
   flax: *c_delim
   fsharp: *c_delim
@@ -193,9 +164,7 @@ language:
   swift: *c_delim
   verilog: *c_delim
   vue: *c_delim
-
   css: *css_delim
-
   # * hash (#) delimiter
   coffeescript: *hash_delim
   dockerfile: *hash_delim
@@ -218,7 +187,6 @@ language:
   tcl: *tcl_delim
   nim: *nim_delim
   powershell: *powershell_delim
-
   # * dash delim
   ada: *double_dash_delim
   hive-sql: *double_dash_delim
@@ -230,7 +198,6 @@ language:
   lua: *lua_format
   elm: *haskell_elm_format
   haskell: *haskell_elm_format
-
   # * " delimiters
   diagram: *single_quote_delim
   vb: *single_quote_delim
@@ -247,7 +214,6 @@ language:
   html: *html_format
   markdown: *html_format
   xml: *html_format
-
   # * standalone delimiters
   terraform: *terraform_format
   COBOL: *cobol_delim
@@ -262,10 +228,8 @@ language:
   genstat: *genstat_format
   cfml: *cfml_format
   asciidoc: *asciidoc_format
-
   # * default
   default: *default_delim
-
   # ~ added languages compared to original extension
   # https://github.com/Parth2031/Colorful-Comments
   astro: *astro_delim
@@ -279,9 +243,7 @@ language:
   applescript: *applescript_delim
   ahk: *semicolon_delim
   ahk2: *ahk2
-  gsc : *double_slash_delim
-
-
+  gsc: *double_slash_delim
   # fix : missing
   plaintext: *plaintext_delim
   # > //, /*, */
@@ -289,7 +251,6 @@ language:
   d: *c_delim
   # > '
   brightscript: *single_quote_delim
-
   # $ language support requests
   # * QLIK
   # https://github.com/Parth2031/Colorful-Comments/issues/5
