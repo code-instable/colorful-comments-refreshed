@@ -8,5 +8,6 @@ export interface Contributions
     color: string;
     strikethrough: boolean;
     backgroundColor: string;
+    isRegex?: boolean;
   }];
 }
