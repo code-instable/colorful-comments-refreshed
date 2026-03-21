@@ -466,6 +466,16 @@ export const doc : Config = {
                 "\"\"\"\""
             ]
         },
+        "snakemake": {
+            "supportedLanguage": true,
+            "ignoreFirstLine": false,
+            "isPlainText": false,
+            "commentFormat": [
+                "#",
+                "\"\"\"",
+                "\"\"\"\""
+            ]
+        },
         "tcl": {
             "supportedLanguage": true,
             "ignoreFirstLine": true,
