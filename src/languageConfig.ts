@@ -15,7 +15,7 @@ interface Config {
     language: Record<string, LanguageConfig>;
 }
 
-export const doc : Config = {
+export const doc: Config = {
     "language": {
         "javascript": {
             "supportedLanguage": true,
