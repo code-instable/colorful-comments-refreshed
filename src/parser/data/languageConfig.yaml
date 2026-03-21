@@ -213,6 +213,7 @@ language:
   # $ python style delimiter
   python: *python_delim
   elixir: *python_delim
+  snakemake: *python_delim # see https://github.com/snakemake/snakemake-lang-vscode-plugin/blob/master/package.json
   # $ other
   tcl: *tcl_delim
   nim: *nim_delim
