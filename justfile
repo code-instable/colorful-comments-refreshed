@@ -40,7 +40,7 @@ gen-pkg:
 compile: gen-pkg gen-ts
     tsc -p ./
     cp -r src/parser/data out/parser/
-    eslint src --ext ts
+    eslint_d src --ext ts
 
 # npm run compile (delegates to package.json scripts)
 compile-npm: gen-pkg
