@@ -3,7 +3,7 @@
   "displayName": "Colorful Comments Refreshed",
   "icon": "icon.png",
   "description": "Improve and Enhance your code and make it attractive by adding Colorful Comments",
-  "version": "0.7.9",
+  "version": "0.8.0",
   "publisher": "AllemandInstable",
   "author": {
     "name": "Allemand Instable"
@@ -242,7 +242,8 @@
   "scripts": {
     "gen-pkg": "command -v just >/dev/null 2>&1 && just gen-pkg || python3 scripts/convert_packages_yaml.py package.yaml package.json",
     "gen-ts": "command -v just >/dev/null 2>&1 && just gen-ts || python3 scripts/gen_ts_language_config.py",
-    "compile": "command -v just >/dev/null 2>&1 && just compile || (python3 scripts/convert_packages_yaml.py package.yaml package.json && python3 scripts/gen_ts_language_config.py && tsc -p ./)",
+    "gen-implemented-languages": "python3 scripts/gen_implemented_languages.py package.yaml implemented_languages.md",
+    "compile": "command -v just >/dev/null 2>&1 && just compile || (python3 scripts/convert_packages_yaml.py package.yaml package.json && python3 scripts/gen_ts_language_config.py && python3 scripts/gen_implemented_languages.py package.yaml implemented_languages.md && tsc -p ./)",
     "vscode:prepublish": "npm run compile",
     "lint": "eslint src --ext ts",
     "watch": "tsc -watch -p ./",
