@@ -132,6 +132,7 @@
     "onLanguage:wolfram",
     "onLanguage:nix",
     "onLanguage:toml",
+    "onLanguage:snakemake",
     "onNotebook:jupyter-notebook",
     "onNotebook:interactive",
     "onNotebook:sas-notebook"
