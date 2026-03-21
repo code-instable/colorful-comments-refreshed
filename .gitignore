@@ -4,3 +4,4 @@ node_modules
 *.vsix
 **/.vscode
 *.afdesign
+**/.DS_Store
